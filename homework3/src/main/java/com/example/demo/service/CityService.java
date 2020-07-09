@@ -1,5 +1,16 @@
+/**
+ * File: 		CityService.java
+ * Description: Controller for city info and reservations 
+ * Bugs: 		none known
+ * Purpose:		CST438 Homework 3
+ * @author		George Blombach
+ * @version     1.0
+ * @see also
+ */
 package com.example.demo.service;
 
+import org.springframework.amqp.core.FanoutExchange;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
@@ -28,5 +39,21 @@ public class CityService {
 			return null;
 		}
     }
+	
+	@Autowired
+    private RabbitTemplate rabbitTemplate;
+	
+    @Autowired
+    private FanoutExchange fanout;
+
+    public void requestReservation(String cityName,String level,String email) {
+		String msg  = "{\"cityName\": \""+ cityName + 
+               "\" \"level\": \""+level+
+               "\" \"email\": \""+email+"\"}" ;
+		System.out.println("Sending message:"+msg);
+		rabbitTemplate.convertSendAndReceive(fanout.getName(), "", msg);  // routing key none.
+                
+	}
+
 }
 
