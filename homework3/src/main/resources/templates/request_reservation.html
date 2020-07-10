@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Request Reservation</title>
+    <style>
+    	span{
+    		font-style: italic;
+    	}
+    </style>
 </head>
 <body>
-	<h3>The details of your weekend get away at the <span th:text="${level}"></span> level 
+	<h3>The details of your weekend get away at the </i><span th:text="${level}"></span> level 
 	to <span th:text="${city}"></span> are being emailed to <span th:text="${email}"></span>. 
 </body>
 </html>

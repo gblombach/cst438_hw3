@@ -2,7 +2,7 @@
  * File: 		City.java
  * Description: Class that defines city attributes and methods
  * Bugs: 		none known
- * Purpose:		CST438 Homework 2
+ * Purpose:		CST438 Homework 3
  * @author		George Blombach
  * @version     1.0
  * @see also
