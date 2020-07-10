@@ -47,10 +47,10 @@ public class CityService {
     private FanoutExchange fanout;
 
     public void requestReservation(String cityName,String level,String email) {
-		String msg  = "{\"cityName\": \""+ cityName + 
-               "\" \"level\": \""+level+
-               "\" \"email\": \""+email+"\"}" ;
-		System.out.println("Sending message:"+msg);
+		String msg  = "{\"cityName\": \"" + cityName + 
+               "\" \"level\": \""+ level +
+               "\" \"email\": \""+ email +"\"}" ;
+		System.out.println("Sending message:" + msg);
 		rabbitTemplate.convertSendAndReceive(fanout.getName(), "", msg);  // routing key none.
                 
 	}

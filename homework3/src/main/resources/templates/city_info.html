@@ -36,11 +36,11 @@
 	<form action="#" th:action="@{/cities/reservation}"  method="post">
 		<label for="email">Email:</label>
 		<input type="text" name="email" id="email"><br>
-		<input type="radio" name="level" id="luxury"><label for="luxury">Luxury $1000</label><br>
-		<input type="radio" name="level" id="veryGood"><label for="veryGood">Very Good $500</label><br>
-		<input type="radio" name="level" id="good" checked="checked"><label for="good" >Good $350</label><br>
+		<input type="radio" name="level" id="luxury" value="Luxury"><label for="luxury">Luxury $1000</label><br>
+		<input type="radio" name="level" id="veryGood" value="Very Good"><label for="veryGood">Very Good $500</label><br>
+		<input type="radio" name="level" id="good" value="Good" checked="checked"><label for="good" >Good $350</label><br>
+		<input type="hidden" name="city" th:value="${cityInfo.getName()}">
 		<input type="submit" value="Submit" />
 	</form>
-	
 
 </body>
